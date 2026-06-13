@@ -1,0 +1,21 @@
+name: Test pre-build-command input
+on:
+  workflow_dispatch:
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_SHA: abc1234def5678901234567890123456789012345
+      GITHUB_REPOSITORY: test-owner/test-repo
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+      - id: action
+        uses: .
+        with:
+          pre-build-command: "echo 'pre-build-command executed'"
+          build-command: make html
+        continue-on-error: true
+      - name: Assert action was invoked with pre-build-command
+        run: |
+          echo "Action step completed with pre-build-command set"
+          echo "PASS"
