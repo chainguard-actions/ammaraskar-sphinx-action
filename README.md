@@ -10,6 +10,7 @@ Hardened by [Chainguard](https://www.chainguard.dev) from the upstream action at
 |---------|-----|-----------------|
 | 0.1 | [`0.1`](https://github.com/chainguard-actions/ammaraskar-sphinx-action/tree/0.1) | [`60b5133`](https://github.com/ammaraskar/sphinx-action/commit/60b513397ac70d033396daccaf578dc4d126f67c) |
 | 0.2 | [`0.2`](https://github.com/chainguard-actions/ammaraskar-sphinx-action/tree/0.2) | [`2e99655`](https://github.com/ammaraskar/sphinx-action/commit/2e996556da98aa8189f221d1b283de086a8f05f4) |
+| 0.4 | [`0.4`](https://github.com/chainguard-actions/ammaraskar-sphinx-action/tree/0.4) | [`8b4f601`](https://github.com/ammaraskar/sphinx-action/commit/8b4f60114d7fd1faeba1a712269168508d4750d2) |
 
 ## Privacy
 
