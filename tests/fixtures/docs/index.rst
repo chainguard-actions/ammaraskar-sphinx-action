@@ -1,7 +1,7 @@
-Test Documentation
-==================
+Test Project
+============
 
-This is a minimal test documentation project.
+Welcome to the test project documentation.
 
 Contents:
 
