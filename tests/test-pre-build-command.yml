@@ -1,0 +1,31 @@
+name: Test pre-build command
+on:
+  workflow_dispatch:
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+
+      - id: sphinx-build
+        name: Build Sphinx docs with pre-build command
+        uses: .
+        with:
+          docs-folder: ${{ github.workspace }}/tests/fixtures/docs-prebuild/
+          pre-build-command: echo "pre-build step executed"
+
+      - name: Assert build succeeded with pre-build command
+        run: |
+          echo "Sphinx build with pre-build command completed successfully"
+          BUILD_DIR="${GITHUB_WORKSPACE}/tests/fixtures/docs-prebuild/_build"
+          if [ ! -d "$BUILD_DIR" ]; then
+            echo "FAIL: _build directory was not created by Sphinx"
+            ls -la "${GITHUB_WORKSPACE}/tests/fixtures/docs-prebuild/" || true
+            exit 1
+          fi
+          if [ ! -f "$BUILD_DIR/html/index.html" ]; then
+            echo "FAIL: index.html was not generated"
+            find "$BUILD_DIR" -type f || true
+            exit 1
+          fi
+          echo "PASS: Sphinx HTML output found after pre-build command"
